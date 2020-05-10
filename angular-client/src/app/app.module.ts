@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { ArchiveModule } from './archive/archive.module';
+import { FilterComponent } from './archive/filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ArchiveModule
+    ArchiveModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
