@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { ArchiveModule } from './archive/archive.module';
 import { FilterComponent } from './archive/filter/filter.component';
+import { BooksComponent } from './archive/books/books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArchiveComponent,
-    FilterComponent
+    FilterComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
