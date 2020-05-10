@@ -8,6 +8,7 @@ import { ArchiveModule } from './archive/archive.module';
 import { FilterComponent } from './archive/filter/filter.component';
 import { BooksComponent } from './archive/books/books.component';
 import { BookComponent } from './archive/books/book/book.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BookComponent } from './archive/books/book/book.component';
     BrowserModule,
     AppRoutingModule,
     ArchiveModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
