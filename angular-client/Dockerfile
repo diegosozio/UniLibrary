@@ -10,8 +10,8 @@ WORKDIR /app
 # Get all the code needed to run the app
 COPY . /app/
 
-# Expose the port the app runs in
-EXPOSE 4200
+# Expose the port the app runs in, adding port 49153 to refresh the angular page
+EXPOSE 4200 49153 
 
 # Serve the app
 CMD ["npm","start"]
