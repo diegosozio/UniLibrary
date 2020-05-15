@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 import { Routes } from '@angular/router'
 import { RouterModule } from '@angular/router'
 
-import { HomeComponent } from '../authentication/home/home.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
 import { LogInComponent } from '../authentication/log-in/log-in.component';
 import { RegisterComponent } from '../authentication/register/register.component';
 import { ArchiveComponent } from '../archive/archive.component';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent  },
+const routes: Routes = [  
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent  },
   { path: 'log-in', component: LogInComponent }, 
   { path: 'register', component: RegisterComponent },
   { path: 'gallery', component: ArchiveComponent },
 
-    // otherwise redirect to home 
-    { path: '**', redirectTo: '' }
+  {path: '**', redirectTo: '404'},
 ];
   
 

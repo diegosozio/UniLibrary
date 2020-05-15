@@ -15,7 +15,6 @@ import { BooksComponent } from './archive/books/books.component';
 import { BookComponent } from './archive/books/book/book.component';
 import { FilterComponent } from './archive/filter/filter.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +24,8 @@ import { FilterComponent } from './archive/filter/filter.component';
     ArchiveComponent,
     FilterComponent,
     BooksComponent,
-    BookComponent
+    BookComponent,
+
   ],
   imports: [
     BrowserModule,
