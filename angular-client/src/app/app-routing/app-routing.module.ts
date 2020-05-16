@@ -18,12 +18,12 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent  },
   { path: 'gallery', component: ArchiveComponent },
   { path: 'notfound', component: NotFoundComponent  },
-  { path: '**', redirectTo: '/notfound', pathMatch: 'full' },
 
   /* Afer refactoring */
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  //{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'account', loadChildren: accountModule },
   { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: '/notfound', pathMatch: 'full' },
 
 ];
   
