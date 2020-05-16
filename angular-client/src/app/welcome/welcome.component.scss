@@ -1,10 +1,22 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-.header{background: #736F6E; height: 10vh; background-size: cover;background-position: center;}
+.header{
+  height: 10vh; 
+  background-size: cover;
+  background-position: center;
+  background: -webkit-linear-gradient(-150deg, #000000, #ffdf00);
+  background: -o-linear-gradient(-150deg, #000000, #ffdf00);
+  background: -moz-linear-gradient(-150deg, #000000, #ffdf00);
+  background: linear-gradient(-150deg, #000000, #ffdf00);
+}
+
 body, html {
   height: 100%;
   color: #000;
   line-height: 1.8;
-  background: #736F6E
+  background: -webkit-linear-gradient(-150deg, #000000, #ffdf00);
+  background: -o-linear-gradient(-150deg, #000000, #ffdf00);
+  background: -moz-linear-gradient(-150deg, #000000, #ffdf00);
+  background: linear-gradient(-150deg, #000000, #ffdf00);
 }
 
 /* Create a Parallax Effect */
