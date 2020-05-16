@@ -12,6 +12,11 @@ export class FilterComponent implements OnInit {
   genres: Array<genre>;
   types: Array<type>;
   authors: Array<Author>;
+  years: Array<number>;
+  selectedGenre : genre = {id:0 , title:'Genre'}
+  selectedType : type = {id:0 , title:'Type'}
+  selectedAuthor : Author = {id:0 , name:'Author'}
+  selectedYear: any = 'Year';
   constructor() { }
 
   ngOnInit(): void {
@@ -49,6 +54,22 @@ export class FilterComponent implements OnInit {
         id: 4, name: "Danielle Steel"
       }]
 
+      this.years = [2000,2001]
+
   }
+
+  changeGenre(genre:genre){
+    this.selectedGenre = genre
+  }
+  changeType(type:type){
+    this.selectedType = type
+  }
+  changeAuthor(author:Author){
+    this.selectedAuthor = author
+  }
+  changeYear(year){
+    this.selectedYear = year
+  }
+ 
 
 }

@@ -10,58 +10,12 @@
             <div class="col-md-3">
                 <div class="col">
                     <div ngbDropdown class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
-                      <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>Year</button>
+                      <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                        {{selectedYear}}</button>
                       <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
-                        <button ngbDropdownItem>1970</button>
-                        <button ngbDropdownItem>1971</button>
-                        <button ngbDropdownItem>1972</button>
-                        <button ngbDropdownItem>1973</button>
-                        <button ngbDropdownItem>1974</button>
-                        <button ngbDropdownItem>1975</button>
-                        <button ngbDropdownItem>1976</button>
-                        <button ngbDropdownItem>1977</button>
-                        <button ngbDropdownItem>1978</button>
-                        <button ngbDropdownItem>1979</button>
-                        <button ngbDropdownItem>1980</button>
-                        <button ngbDropdownItem>1981</button>
-                        <button ngbDropdownItem>1982</button>
-                        <button ngbDropdownItem>1983</button>
-                        <button ngbDropdownItem>1984</button>
-                        <button ngbDropdownItem>1985</button>
-                        <button ngbDropdownItem>1987</button>
-                        <button ngbDropdownItem>1988</button>
-                        <button ngbDropdownItem>1989</button>
-                        <button ngbDropdownItem>1990</button>
-                        <button ngbDropdownItem>1991</button>
-                        <button ngbDropdownItem>1992</button>
-                        <button ngbDropdownItem>1993</button>
-                        <button ngbDropdownItem>1994</button>
-                        <button ngbDropdownItem>1995</button>
-                        <button ngbDropdownItem>1996</button>
-                        <button ngbDropdownItem>1997</button>
-                        <button ngbDropdownItem>1998</button>
-                        <button ngbDropdownItem>1999</button>
-                        <button ngbDropdownItem>2000</button>
-                        <button ngbDropdownItem>2001</button>
-                        <button ngbDropdownItem>2002</button>
-                        <button ngbDropdownItem>2003</button>
-                        <button ngbDropdownItem>2004</button>
-                        <button ngbDropdownItem>2005</button>
-                        <button ngbDropdownItem>2006</button>
-                        <button ngbDropdownItem>2007</button>
-                        <button ngbDropdownItem>2008</button>
-                        <button ngbDropdownItem>2009</button>
-                        <button ngbDropdownItem>2010</button>
-                        <button ngbDropdownItem>2011</button>
-                        <button ngbDropdownItem>2012</button>
-                        <button ngbDropdownItem>2013</button>
-                        <button ngbDropdownItem>2014</button>
-                        <button ngbDropdownItem>2015</button>
-                        <button ngbDropdownItem>2016</button>
-                        <button ngbDropdownItem>2017</button>
-                        <button ngbDropdownItem>2018</button>
-                        <button ngbDropdownItem>2019</button>
-                        <button ngbDropdownItem>2020</button>
+                        <button *ngFor="let year of years" ngbDropdownItem (click)="changeYear(year)">
+                          {{year}}
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -69,9 +23,10 @@
             <div class="col-md-3">
                 <div class="col">
                     <div ngbDropdown class="d-inline-block">
-                      <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>Genre</button>
+                      <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                        {{selectedGenre.title}}</button>
                       <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
-                        <button *ngFor="let genre of genres" ngbDropdownItem>
+                        <button *ngFor="let genre of genres" ngbDropdownItem (click)="changeGenre(genre)">
                           {{genre.title}}
                         </button>
                       </div>
@@ -81,10 +36,12 @@
            <div class="col-md-3">
             <div class="col">
                 <div ngbDropdown class="d-inline-block">
-                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>Type</button>
+                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                    {{selectedType.title}}
+                  </button>
                   <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
                   
-                    <button *ngFor="let type of types" ngbDropdownItem>
+                    <button *ngFor="let type of types" ngbDropdownItem (click)="changeType(type)">
                       {{type.title}}
                     </button>
                   </div>
@@ -94,10 +51,11 @@
             <div class="col-md-3">
                 <div class="col">
                     <div ngbDropdown class="d-inline-block">
-                      <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>Author</button>
+                      <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                        {{selectedAuthor.name}}</button>
                       <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
                       
-                        <button *ngFor="let author of authors" ngbDropdownItem>
+                        <button *ngFor="let author of authors" ngbDropdownItem (click)="changeAuthor(author)">
                           {{author.name}}
                         </button>
                       </div>
