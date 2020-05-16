@@ -1,91 +1,42 @@
-
 <!-- Page Content -->
-<div class="container">
+<div class="col-md-4 card">
+  <div class="row">
+    <div class="col-md-6 card p-2">
+      <p>
+        Author: {{book.author.name}}
+      </p>
+      <p>
+        Genre: {{book.genre.title}}
+      </p>
+      <p>
+        Year: {{book.year}}
+      </p>
+      <p>
+        Format: {{book.format}}
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <b>
+          {{book.title}}
+        </b>
+      </div>
+      <div>
 
-    <hr class="mt-2 mb-5">
-  
-    <div class="row text-center text-lg-left">
-  
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/grayson.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/harms.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/harryman.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hatcher.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hatton.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hatton2.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/lachev.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/landres.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/herrington.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/husted.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ibsen.jpg" alt="">
-            </a>
-      </div>
-      <div class="col-lg-3 col-md-4 col-6">
-        <a href="#" class="d-block mb-4 h-100">
-              <img class="img-fluid img-thumbnail" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/jamae.jpg" alt="">
-            </a>
+        <img class="img-fluid img-thumbnail" [src]="book.image" alt="">
+
       </div>
     </div>
-  
   </div>
-  <!-- /.container 
-<div class="row">
-    <div class="col-6 col-sm-3"><p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p></div>
-    <div class="col-6 col-sm-3"><img class="card-img-top" src="https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/grayson.jpg" alt="Card image cap"></div>
--->
-    <!-- Force next columns to break to new line 
-    <div class="w-100"></div>
-  
-    <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
-    <div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+  <div class="row">
+    <div class="col-md-8">
+      <input type="checkbox"> reserve
+    </div>
+    <div>
+
+      <i *ngIf="book.status==false" class="fa fa-exclamation-triangle text-danger fa-2x" aria-hidden="true" title="Not availabe"></i>
+      <i *ngIf="book.status"class="fa fa-check-circle text-success fa-2x" aria-hidden="true" title="Availabe"></i>
+    </div>
   </div>
--->
-  
-  
-  
 
-  
-
-
-
+</div>

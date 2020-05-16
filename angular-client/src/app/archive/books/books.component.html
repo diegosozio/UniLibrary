@@ -1,5 +1,8 @@
 <div class="container">
     <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Gallery</h1>
-  
-</div>   
-<app-book></app-book>
+
+    <hr class="mt-2 mb-5">
+
+        <app-book *ngFor="let bk of books" [book]="bk" class="row"></app-book>
+   
+</div>
