@@ -3,17 +3,19 @@ const router = express.Router();
 
 const UsersController = require('../controllers/usersController');
 
-
 /* Get welcome message */
 router.get('/', UsersController.getWelcomeMessage);
 
 /* GET all users. */
 router.get('/users', UsersController.getAllUsers);
 
+/* Check if user is authenticated */
+router.post('/authenticate', UsersController.login);
+
 
 module.exports = router;
 
-
+ 
 /* GET one users. 
 router.get('/users/:id', (req, res) => {
 	User.findById(req.params.id, (err, users) => {

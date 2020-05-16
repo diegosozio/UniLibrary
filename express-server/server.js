@@ -13,7 +13,7 @@ mongoose.connect(dbHost, { useNewUrlParser: true, useFindAndModify: false });
 
 /* Parsers for POST data */
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Cross Origin middleware */
 app.use(function(req, res, next) {
