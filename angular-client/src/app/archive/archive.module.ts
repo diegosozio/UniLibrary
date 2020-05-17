@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ArchiveRoutingModule } from './archive-routing.module';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    ArchiveRoutingModule
+    AppRoutingModule
   ]
 })
 export class ArchiveModule { }

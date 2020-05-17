@@ -1,0 +1,56 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+.header{
+  height: 10vh; 
+  background-size: cover;
+  background-position: center;
+  background: -webkit-linear-gradient(-150deg, #000000, #ffdf00);
+  background: -o-linear-gradient(-150deg, #000000, #ffdf00);
+  background: -moz-linear-gradient(-150deg, #000000, #ffdf00);
+  background: linear-gradient(-150deg, #000000, #ffdf00);
+}
+
+body, html {
+  height: 100%;
+  color: #000;
+  line-height: 1.8;
+  background: -webkit-linear-gradient(-150deg, #000000, #ffdf00);
+  background: -o-linear-gradient(-150deg, #000000, #ffdf00);
+  background: -moz-linear-gradient(-150deg, #000000, #ffdf00);
+  background: linear-gradient(-150deg, #000000, #ffdf00);
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url('https://source.unsplash.com/random/nature');
+  min-height: 100%;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  * html .clearfix             { zoom: 1; } /* IE6 */
+  :first-child+html .clearfix { zoom: 1; } /* IE7 */
