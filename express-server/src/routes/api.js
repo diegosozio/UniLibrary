@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const UsersController = require('../controllers/usersController');
-
+const BooksController = require('../controllers/booksController');
 
 /* Get welcome message */
 router.get('/', UsersController.getWelcomeMessage);
@@ -11,8 +11,28 @@ router.get('/', UsersController.getWelcomeMessage);
 router.get('/users', UsersController.getAllUsers);
 
 
+/* GET all books. */
+router.get('/books', BooksController.getAllBooks);
+
+/* POST add new genre. */
+router.post('/genre', BooksController.addNewGenre);
 module.exports = router;
 
+/* POST add new author. */
+router.post('/author', BooksController.addNewAuthor);
+module.exports = router;
+
+/* POST add new book type. */
+router.post('/book-type', BooksController.addBookType);
+module.exports = router;
+
+/* POST add new book. */
+router.post('/book', BooksController.addNewBook);
+module.exports = router;
+
+/* GET all books. */
+router.get('/books', BooksController.getAllBooks);
+module.exports = router;
 
 /* GET one users. 
 router.get('/users/:id', (req, res) => {
