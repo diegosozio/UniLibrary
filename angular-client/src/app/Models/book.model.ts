@@ -1,6 +1,6 @@
 import { genre } from './genre.model';
 import { Author } from './author.model';
-import { type } from './type.model';
+import { bookType } from './bookType.model';
 
 export class Book {
     id:number;
@@ -10,6 +10,6 @@ export class Book {
     status: boolean;
     genre : genre
     author : Author
-    type: type
+    bookType: bookType
     format: string
 }

@@ -25,7 +25,7 @@ export class BooksComponent implements OnInit {
           id:2,
           name:'Agatha Christie'
         },
-        type: {
+        bookType: {
           id:1,
           title:'Fiction'
         },

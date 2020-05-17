@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { genre } from '../../Models/genre.model';
-import { type } from '../../Models/type.model';
+import { bookType } from '../../Models/bookType.model';
 import { Author } from '../../Models/author.model';
 @Component({
   selector: 'app-filter',
@@ -10,11 +10,11 @@ import { Author } from '../../Models/author.model';
 export class FilterComponent implements OnInit {
 
   genres: Array<genre>;
-  types: Array<type>;
+  bookTypes: Array<bookType>;
   authors: Array<Author>;
   years: Array<number>;
   selectedGenre : genre = {id:0 , title:'Genre'}
-  selectedType : type = {id:0 , title:'Type'}
+  selectedType : bookType = {id:0 , title:'Type'}
   selectedAuthor : Author = {id:0 , name:'Author'}
   selectedYear: any = 'Year';
   constructor() { }
@@ -31,7 +31,7 @@ export class FilterComponent implements OnInit {
         id: 3, title: "Romance"
       }]
 
-    this.types = [
+    this.bookTypes = [
       {
         id: 1, title: "Fiction"
       },
@@ -61,8 +61,8 @@ export class FilterComponent implements OnInit {
   changeGenre(genre:genre){
     this.selectedGenre = genre
   }
-  changeType(type:type){
-    this.selectedType = type
+  changeType(bookType:bookType){
+    this.selectedType = bookType
   }
   changeAuthor(author:Author){
     this.selectedAuthor = author

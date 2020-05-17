@@ -1,4 +1,4 @@
-export class type {
+export class bookType {
     id:number;
     title: string;
 }

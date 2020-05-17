@@ -41,8 +41,8 @@
                   </button>
                   <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
                   
-                    <button *ngFor="let type of types" ngbDropdownItem (click)="changeType(type)">
-                      {{type.title}}
+                    <button *ngFor="let bookType of bookTypes" ngbDropdownItem (click)="changeType(bookType)">
+                      {{bookType.title}}
                     </button>
                   </div>
                 </div>
