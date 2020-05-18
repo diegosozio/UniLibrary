@@ -13,5 +13,14 @@ export class BooksService {
   public getAllBooks() {
     return this.httpClient.get(`${API_URL}/books`);
   }
+  public getAllGeneres() {
+    return this.httpClient.get(`${API_URL}/genres`);
+  }
+  public getAllBookTypes() {
+    return this.httpClient.get(`${API_URL}/book-types`);
+  }
+  public getAllAuthors() {
+    return this.httpClient.get(`${API_URL}/authors`);
+  }
 
 }
