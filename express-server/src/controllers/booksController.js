@@ -13,9 +13,21 @@ class BooksController {
 			res.json(Books);
 	};
 	static async getAllGenres(req, res) {
-		Genre.find({}, (err, Genre) => {
+		Genre.find({}, (err, Genres) => {
 			if (err) res.status(500).send(error)
-			res.json(Book);
+			res.json(Genres);
+		});
+	};
+	static async getAllBookTypes(req, res) {
+		BookType.find({}, (err, BookTypes) => {
+			if (err) res.status(500).send(error)
+			res.json(BookTypes);
+		});
+	};
+	static async getAllAuthors(req, res) {
+		Author.find({}, (err, Authors) => {
+			if (err) res.status(500).send(error)
+			res.json(Authors);
 		});
 	};
 

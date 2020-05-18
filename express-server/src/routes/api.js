@@ -28,10 +28,16 @@ module.exports = router;
 
 /* POST add new book. */
 router.post('/book', BooksController.addNewBook);
-module.exports = router;
 
 /* GET all books. */
 router.get('/books', BooksController.getAllBooks);
+/* GET all genres. */
+router.get('/genres', BooksController.getAllGenres);
+/* GET all book types. */
+router.get('/book-types', BooksController.getAllBookTypes);
+/* GET all authors. */
+router.get('/authors', BooksController.getAllAuthors);
+
 module.exports = router;
 
 /* GET one users. 
