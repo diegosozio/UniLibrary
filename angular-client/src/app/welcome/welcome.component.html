@@ -1,181 +1,74 @@
-<!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href= "welcome.component.scss">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>UniLibrary</title>
+<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+<link href="welcome.component.scss" rel="stylesheet" type="text/css" media="all" />
+
+</head>
 <body>
-
-<!-- Navbar (sit on top) -->
-<div class="header">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="account/login" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> PRIVATE AREA</a>
-    <a href="gallery" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> GALLERY</a>
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="account/login" class="w3-bar-item w3-button" onclick="toggleFunction()">PRIVATE AREA</a>
-    <a href="gallery" class="w3-bar-item w3-button" onclick="toggleFunction()">GALLERY</a>
-  </div>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a>UniLibrary</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="account/login" accesskey="1" title="">PRIVATE AREA</a></li>
+				<li><a href="gallery" caccesskey="2" title="">GALLERY</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="banner" class="container">
+		<div class="title">
+			<h2>"Il tempo per leggere, come il tempo per amare, dilata il tempo per vivere".</h2>
+			<span class="byline">Daniel Pennac</span>
+		</div>
+	</div>
 </div>
+  
 
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">UniLibrary</span>
-  </div>
-</div>
-
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">LA NOSTRA STORIA</h3>
-  <p></p>
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <img url="https://source.unsplash.com/random/400x400" class="w3-round w3-image w3-opacity w3-hover-opacity-off" width="500" height="333">
-    </div>
-
-    <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-padding-large">
-      <p>L'Università di Bologna continua a puntare sull’eccellenza della didattica, della ricerca all’avanguardia, 
-        della presenza sul territorio, dell'apertura internazionale e dei servizi informativi: 
-        in questi e in molti altri ambiti l'Alma Mater promuove e percorre oggi la strada dell'innovazione.
-        Nell'anno 2019, l'Università di Bologna contava più di 50.000 periodici online, 400.000 libri elettronici e 
-        735 banche dati cui dà accesso il Sistema Bibliotecario di Ateneo. La maggior parte dei periodici 
-        e libri elettronici e cartacei riguardano aree disciplinari come:  l'economia, il diritto, le scienze sociali 
+<div id="wrapper">
+	<div id="three-column" class="container">
+		<div class="title">
+			<span class="byline">
+        <p>L'Università di Bologna continua a puntare sull’eccellenza della didattica, della ricerca all’avanguardia, 
+        della presenza sul territorio, dell'apertura internazionale e dei servizi informativi; 
+        in questi e in molti altri ambiti l'Alma Mater promuove e percorre oggi la strada dell'innovazione.</p>
+        <p>Nell'anno 2019, l'Università di Bologna contava più di 50.000 periodici online, 400.000 libri elettronici e 
+        735 banche dati cui dà accesso il Sistema Bibliotecario di Ateneo.</p>
+        <p>La maggior parte dei periodici e libri elettronici e cartacei riguardano aree disciplinari come:  l'economia, il diritto, le scienze sociali 
         (scienze politiche, relazioni internazionali, sociologia), le lingue e le letterature straniere, la linguistica 
-        e la sociolinguistica, l'ingegneria aerospaziale e meccanica. Il ricco patrimonio documentario viene aggiornato
-         ed incrementato da circa 3000 nuovi acquisti ogni anno.
-        Questa istituzione didattica si sta migliorando in continuazione e per questo motivo vuole fornire i 
-        miglior servizi ai suoi studenti. L'Università di Bologna vuole offrire agli studenti un sito per poter 
-        navigare ed esplorare il patrimonio intellettuale dell'università, in formato cartaceo ed elettronico. 
-        Così nasce UniLibrary, un progetto per la gestione e prenotazione di libri in modalità online.
-        </p>
+        e la sociolinguistica, l'ingegneria aerospaziale e meccanica.</p>
+        <p>Il ricco patrimonio documentario viene aggiornato ed incrementato da circa 3000 nuovi acquisti ogni anno.</p>
+        <p>Questa istituzione didattica si sta migliorando in continuazione e per questo motivo vuole fornire i 
+        miglior servizi ai suoi studenti.</p>
+        <p>L'Università di Bologna vuole offrire agli studenti un sito per poter navigare ed esplorare il patrimonio intellettuale dell'università,
+           in formato cartaceo ed elettronico.</p>
+        <p>Così nasce UniLibrary, un progetto per la gestione e prenotazione di libri in modalità online.</p></span>
     </div>
+  </div>
+  <div class="banners">
   </div>
 </div>
 
 
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <h3 class="w3-center">BEST SELLER</h3>
 
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-
-  <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-      <img url="https://source.unsplash.com/random/nature/50x50" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-
-    <div class="w3-col m3">
-      <img src="welcome/images/3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-  </div>
-
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <img src="/w3images/p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-  </div>
-</div>-->
-<!-- Project Section 
-
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-  <h3 class="w3-center">SCRIVICI</h3>
-
-  <div class="w3-row w3-padding-32 w3-section">
-    <div class="w3-col m8 w3-panel">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Cesena, IT<br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Telefono:  0543 374800<br>
-      </div>
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Nome" required name="Nome">
-          </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-          </div>
-        </div>
-        <input class="w3-input w3-border" type="text" placeholder="Messaggio" required name="Messaggio">
-        <button class="w3-button w3-black w3-right w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> INVIA
-        </button>
-      </form>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer class="w3-content w3-center w3-padding-64 w3-text-grey w3-xlarge">
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">UniLibrary</a></p>
-<!-- End footer -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">   
+<footer class="footer text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<span class="copyright">&copy;Design by UniLibrary.</span>	
+			</div>
+			<div class="col-md-2">
+				<i class="fa fa-github"></i>
+			</div>
+		</div>
+	</div>
 </footer>
- 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
-
 </body>
 </html>
 
