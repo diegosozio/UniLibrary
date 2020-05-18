@@ -14,6 +14,7 @@ import { ArchiveComponent } from './archive/archive.component';
 import { BooksComponent } from './archive/books/books.component';
 import { BookComponent } from './archive/books/book/book.component';
 import { FilterComponent } from './archive/filter/filter.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FilterComponent } from './archive/filter/filter.component';
     AppRoutingModule,
     ArchiveModule,
     NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
