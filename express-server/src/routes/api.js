@@ -12,6 +12,8 @@ router.get('/users', UsersController.getAllUsers);
 /* Check if user is authenticated */
 router.post('/authenticate', UsersController.login);
 
+/* Register a new user. */
+router.post('/register', UsersController.register);
 
 module.exports = router;
 

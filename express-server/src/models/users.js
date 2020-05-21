@@ -7,6 +7,8 @@ module.exports = function(mongoose) {
         surname: String,
         password: String,
         role: String,
+    },{
+        versionKey: false
     });    
     return mongoose.model('usermodel', UserSchema, 'users');
 };

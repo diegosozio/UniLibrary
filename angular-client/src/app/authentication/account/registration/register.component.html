@@ -54,25 +54,25 @@
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="wrap-input" data-validate ="Name is required">
-                <label for="firstName"></label>
-                <input type="text" placeholder="Name" formControlName="firstName" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                <label for="name"></label>
+                <input type="text" placeholder="Name" formControlName="name" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
                 <span class="focus-input"></span>
                     <span class="symbol-input">
                         <i class="fa fa-user-o" aria-hidden="true"></i>
                     </span>
-                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">First Name is required</div>
                 </div>
             </div>
             <div class="wrap-input">
-                <label for="lastName"></label>
-                <input type="text" placeholder="Surname" formControlName="lastName" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                <label for="surname"></label>
+                <input type="text" placeholder="Surname" formControlName="surname" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.surname.errors }" />
                 <span class="focus-input"></span>
                 <span class="symbol-input">
                     <i class="fa fa-user-o" aria-hidden="true"></i>
                 </span>
-                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+                    <div *ngIf="f.surname.errors.required">Last Name is required</div>
                 </div>
             </div>
             <div class="wrap-input validate-input">
