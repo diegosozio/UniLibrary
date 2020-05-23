@@ -6,11 +6,28 @@ const Author = require("../models/authorModel.js")(mongoose);
 class BooksController {
 	/* Method to return all the books in the database books collection */
 	static async getAllBooks(req, res) {
-		let Books = await Book.find()
-		.populate('genre', 'title').populate('author', 'name')
-		.populate('bookType', 'title')
-		;
-			res.json(Books);
+
+
+		const query = req.query.query
+
+		const genre = req.query.genre === "" ? undefined : req.query.genre
+		const type = req.query.type === "" ? undefined : req.query.type
+		const year = req.query.year === "" ? undefined : req.query.year
+		const author = req.query.author === "" ? undefined : req.query.author
+		
+		var requestData = [{ author: author },{ type: type },{ year: year },{ genre: genre }];
+		let Books = []
+		if (query)
+			requestData.push({ title: new RegExp(query, 'i') });
+
+		if (requestData.length) {
+			Books = await Book.find({ $or: requestData })
+				.populate('genre', 'title').populate('author', 'name')
+				.populate('bookType', 'title')
+				;
+		}
+
+		res.json(Books);
 	};
 	static async getAllGenres(req, res) {
 		Genre.find({}, (err, Genres) => {
@@ -71,19 +88,19 @@ class BooksController {
 
 	// Add new book
 	static async addNewBook(req, res) {
-		
+
 		const authorById = await Author.findById(req.body.author);
 		const genreById = await Genre.findById(req.body.genre);
 		const bookTypeById = await BookType.findById(req.body.bookType);
 		var book = new Book({
 			title: req.body.title,
-            year: req.body.year,
-            image: req.body.image,
-            status: req.body.status,
-            genre :genreById._id,
-            author : authorById._id,
-            bookType: bookTypeById._id,
-            format: req.body.format
+			year: req.body.year,
+			image: req.body.image,
+			status: req.body.status,
+			genre: genreById._id,
+			author: authorById._id,
+			bookType: bookTypeById._id,
+			format: req.body.format
 		});
 		book.save(error => {
 			if (error) res.status(500).send(error);
