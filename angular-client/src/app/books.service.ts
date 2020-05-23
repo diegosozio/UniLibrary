@@ -7,11 +7,12 @@ const API_URL = environment.apiUrl;
   providedIn: 'root'
 })
 export class BooksService {
+  books: Array<Book>
 
   constructor(private httpClient: HttpClient) { }
 
-  public getAllBooks() {
-    return this.httpClient.get(`${API_URL}/books`);
+  public getAllBooks(data:any) {
+    return this.httpClient.get(`${API_URL}/books?query=${data.query}&type=${data.type}&author=${data.author}&genre=${data.genre}&year=${data.year}`);
   }
   public getAllGeneres() {
     return this.httpClient.get(`${API_URL}/genres`);
@@ -22,5 +23,6 @@ export class BooksService {
   public getAllAuthors() {
     return this.httpClient.get(`${API_URL}/authors`);
   }
+
 
 }

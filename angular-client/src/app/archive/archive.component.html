@@ -1,3 +1,3 @@
-<app-filter></app-filter>
-<app-books></app-books>
+<app-filter (refreshBooksFunction)="refreshBooks($event)"></app-filter>
+<app-books [books]="books"></app-books>
 <p>Archive works!</p>

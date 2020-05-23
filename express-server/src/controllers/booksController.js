@@ -8,24 +8,38 @@ class BooksController {
 	static async getAllBooks(req, res) {
 
 
-		const query = req.query.query
+		const query = req.query.query == "" ? null : req.query.query
 
-		const genre = req.query.genre === "" ? undefined : req.query.genre
-		const type = req.query.type === "" ? undefined : req.query.type
-		const year = req.query.year === "" ? undefined : req.query.year
-		const author = req.query.author === "" ? undefined : req.query.author
-		
-		var requestData = [{ author: author },{ type: type },{ year: year },{ genre: genre }];
+		const genre = req.query.genre == "" ? null : req.query.genre
+		const type = req.query.type == "" ? null : req.query.type
+		const year = req.query.year == "" ? null : parseIntreq.query.year
+		const author = req.query.author == "" ? null : req.query.author
+
+		var requestData = [];
 		let Books = []
 		if (query)
 			requestData.push({ title: new RegExp(query, 'i') });
+		if (type)
+			requestData.push({ bookType: type });
+		if (year)
+			requestData.push({ year: year });
+		if (author)
+			requestData.push({ author: author });
+		if (genre)
+			requestData.push({ genre: genre });
 
 		if (requestData.length) {
-			Books = await Book.find({ $or: requestData })
+			Books = await Book.find({ $and: requestData })
 				.populate('genre', 'title').populate('author', 'name')
 				.populate('bookType', 'title')
 				;
 		}
+		else
+		Books = await Book.find()
+				.populate('genre', 'title').populate('author', 'name')
+				.populate('bookType', 'title')
+				;
+
 
 		res.json(Books);
 	};

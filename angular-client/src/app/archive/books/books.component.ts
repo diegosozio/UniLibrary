@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Book } from '../../Models/book.model';
 import { BooksService } from 'src/app/books.service';
 @Component({
@@ -9,14 +9,11 @@ import { BooksService } from 'src/app/books.service';
 export class BooksComponent implements OnInit {
 
   constructor(private bookService: BooksService) { }
-  books : Array<Book>
+  @Input() books: Array<Book>
 
   ngOnInit(): void {
-    this.bookService.getAllBooks().subscribe((data:Array<Book>)=>{
-     
-      this.books = data;
-    });
-  
+
+
   }
 
 }

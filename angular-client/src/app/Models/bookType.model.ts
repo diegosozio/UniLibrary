@@ -1,4 +1,4 @@
 export class bookType {
-    id:number;
+    _id:number;
     title: string;
 }
