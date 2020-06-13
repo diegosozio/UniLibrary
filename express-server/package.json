@@ -1,13 +1,14 @@
 {
   "name": "express-server",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "body-parser": "~1.15.2",
-    "express": "~4.14.0",
-    "mongoose": "^4.7.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^5.9.13",
+    "passport-local-authenticate": "^1.2.0"
   }
 }

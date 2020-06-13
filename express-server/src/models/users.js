@@ -5,9 +5,10 @@ module.exports = function(mongoose) {
         username:  String, 
         name: String,
         surname: String,
-        email: String,
         password: String,
         role: String,
+    },{
+        versionKey: false
     });    
     return mongoose.model('usermodel', UserSchema, 'users');
 };
