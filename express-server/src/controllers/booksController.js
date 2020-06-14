@@ -12,7 +12,7 @@ class BooksController {
 
 		const genre = req.query.genre == "" ? null : req.query.genre
 		const type = req.query.type == "" ? null : req.query.type
-		const year = req.query.year == "" ? null : parseIntreq.query.year
+		const year = req.query.year == "" ? null : parseInt(req.query.year)
 		const author = req.query.author == "" ? null : req.query.author
 
 		var requestData = [];

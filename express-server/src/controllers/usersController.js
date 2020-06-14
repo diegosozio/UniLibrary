@@ -36,9 +36,9 @@ class UsersController {
 
 			else {
 				/* User with this username exist, verify if hash password is correct and responce to client.*/
-				auth.hash(info.password, function(err, hashed) {
-					auth.verify(users[0].password, hashed, function(err, verified) {
-						
+			
+					auth.verify(info.password, users[0].password, function(err, verified) {
+						console.log(users[0].password);
 						if(verified){
 							/* Correct password */
 							var USER_TOKEN = "user jwt token";
@@ -46,7 +46,7 @@ class UsersController {
 								"name": users[0].name,
 								"surname": users[0].surname,
 								"username": users[0].username,
-								"password": hashed.hash, 
+								"password": users[0].password, 
 								"role": users[0].role,
 								"token": USER_TOKEN,
 							}		
@@ -56,8 +56,7 @@ class UsersController {
 							/* Incorrect password */
 							res.status(401).send( { message: 'Wrong password. Try again.' } );	
 						}
-					});
-				});				
+					});			
 			}
 		});	
 	};
@@ -76,7 +75,7 @@ class UsersController {
 				if(users[0] == null){
 				   /* No user with this username exist, proceed with the registration.*/
 					auth.hash(user.password, function(err, hashed) {
-						user.password = hashed.hash;									
+						user.password = hashed;									
 						user.save(function(err, usr){
 							if(err) res.send({status: 404, error: { message: 'There was an error during your request.' } });
 							else res.status(201).send(usr);					

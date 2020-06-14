@@ -2,10 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const UsersController = require('../controllers/usersController');
-<<<<<<< HEAD
 const BooksController = require('../controllers/booksController');
-=======
->>>>>>> develop
 
 /* Get welcome message */
 router.get('/', UsersController.getWelcomeMessage);
@@ -16,7 +13,6 @@ router.get('/users', UsersController.getAllUsers);
 /* Check if user is authenticated */
 router.post('/authenticate', UsersController.login);
 
-<<<<<<< HEAD
 /* GET all books. */
 router.get('/books', BooksController.getAllBooks);
 
@@ -44,11 +40,9 @@ router.get('/book-types', BooksController.getAllBookTypes);
 /* GET all authors. */
 router.get('/authors', BooksController.getAllAuthors);
 
-=======
 /* Register a new user. */
 router.post('/register', UsersController.register);
 
->>>>>>> develop
 module.exports = router;
 
  

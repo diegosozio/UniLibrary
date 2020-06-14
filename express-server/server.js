@@ -8,7 +8,7 @@ const app = express();
 /* MongoDB URL from the docker-compose file.  */
 //const dbHost = 'mongodb://192.168.99.100:27019/unilibrary'; /* Comment this line if it doesn't work for you */
 //const dbHost = 'mongodb://localhost:27019/unilibrary';   /* Decomment this line to connect to database for you */
-const dbHost = 'mongodb://database/unilibrary'; 
+const dbHost = 'mongodb://localhost:27019/unilibrary'; 
 mongoose.connect(dbHost, { useNewUrlParser: true, useFindAndModify: false });
 
 
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /* Cross Origin middleware */
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization")
   next()
 });
 
