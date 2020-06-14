@@ -17,5 +17,8 @@ export class BookComponent implements OnInit {
   @Input() book: Book;
   ngOnInit(): void {
   }
+  onChange(event){
+
+  }
 
 }

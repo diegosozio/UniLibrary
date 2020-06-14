@@ -17,6 +17,7 @@ import {FormsModule} from '@angular/forms'
 import { AccountService } from './authentication/account/account.service';
 import { ArchiveModule } from './archive/archive.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UiSwitchModule } from 'ngx-ui-switch';
 @NgModule({
 
   imports: [
@@ -28,7 +29,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UiSwitchModule
   ],
 
   declarations: [
