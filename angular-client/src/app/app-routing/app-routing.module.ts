@@ -1,38 +1,38 @@
 import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router'
 import { RouterModule } from '@angular/router'
-
-
-import { HomeComponent } from '../authentication/home';
-import { AuthGuard } from '../authentication/utils/auth.guard';
-
+import { HomeComponent } from '../identification/authorization/home';
+import { RoleGuard } from '../identification/authorization/role.guard';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { ArchiveComponent } from '../archive/archive.component';
 import { NotFoundComponent} from '../not-found/not-found.component';
+import { Role } from '../identification/model/role';
 
-const accountModule = () => import('../authentication/account/account.module').then(x => x.AccountModule);
-const usersModule = () => import('../authentication/user/users.module').then(x => x.UsersModule);
- 
+
+const authenticationModule = () => import('../identification/authentication/authentication.module').then(x => x.AuthenticaionModule);
+const adminModule = () => import('../identification/authorization/users/admin/admin.module').then(x => x.AdminModule);
+
+
 const routes: Routes = [  
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' }, 
   { path: 'welcome', component: WelcomeComponent  },
   { path: 'gallery', component: ArchiveComponent },
   { path: 'notfound', component: NotFoundComponent  },
 
-  /* Afer refactoring */
-  //{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'account', loadChildren: accountModule },
-  { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: '/notfound', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, canActivate: [RoleGuard] },
+  { path: 'account', loadChildren: authenticationModule },
+  { path: 'admin',   loadChildren: adminModule, canActivate: [RoleGuard], data: { roles: [Role.Admin] }, },
+
+  { path: '**', redirectTo: '' }
 
 ];
-  
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { } 
 
 

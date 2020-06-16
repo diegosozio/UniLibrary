@@ -1,9 +1,11 @@
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose')   
+const cors = require('cors') // used for blocked by CORS policy: Request header field authorization is not allowed by Access-Control-Allow-Headers in preflight response.
 
 const app = express();
+app.use(cors())
 
 /* MongoDB URL from the docker-compose file.  */
 const dbHost = 'mongodb://192.168.99.100:27019/unilibrary'; /* Comment this line if it doesn't work for you */
@@ -17,9 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Cross Origin middleware */
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  next()
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 const api = require('./src/routes/api');

@@ -4,12 +4,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { JwtInterceptor } from './authentication/utils/jwt.interceptior';
-import { ErrorInterceptor } from './authentication/utils/error.iterceptior';
+import { JwtInterceptor } from './identification/authentication/utils/jwt.interceptior';
+import { ErrorInterceptor } from './identification/authentication/utils/error.iterceptior';
 import { AppComponent } from './app.component';
-import { AlertComponent } from './authentication/alerts/alert.component';
-import { HomeComponent } from './authentication/home/home.component';
-import { AccountService } from './authentication/account/account.service';
+import { AlertComponent } from './identification/authentication/alerts/alert.component';
+import { HomeComponent } from './identification/authorization/home/home.component';
+import { AuthenticationService } from './identification/authentication/authentication.service';
+import { AdminComponent } from './identification/authorization/users/admin/admin.component';
 
 @NgModule({
 
@@ -23,7 +24,8 @@ import { AccountService } from './authentication/account/account.service';
   declarations: [
     AppComponent, 
     AlertComponent, 
-    HomeComponent
+    HomeComponent,
+    //AdminComponent
   /*ArchiveComponent,
     FilterComponent,
     BookComponent*/
@@ -32,7 +34,7 @@ import { AccountService } from './authentication/account/account.service';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor,  multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor,multi: true }, 
-    AccountService
+    AuthenticationService // To dbe deleted ?!
   ],
 })
 export class AppModule { };

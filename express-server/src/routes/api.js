@@ -3,43 +3,34 @@ const router = express.Router();
 
 const UsersController = require('../controllers/usersController');
 
-/* Get welcome message */
-router.get('/', UsersController.getWelcomeMessage);
+router.route('/')
+	/* Get welcome message */
+	.get(UsersController.getWelcomeMessage);
 
-/* GET all users. */
-router.get('/users', UsersController.getAllUsers);
 
-/* Check if user is authenticated */
-router.post('/authenticate', UsersController.login);
+router.route('/users')
+	/* GET all users. */
+	.get(UsersController.getAllUsers);
 
-/* Register a new user. */
-router.post('/register', UsersController.register);
+
+router.route('/users/:username')
+	/* GET user by username */
+	.get(UsersController.getUserByUsername)
+	/* PUT user by username */
+	.put(UsersController.updateUserByUsername)
+	/* DELETE user by username */
+	.delete( UsersController.deleteUserByUsername);
+	
+
+router.route('/authenticate')
+	/* Check if user is authenticated */
+	.post( UsersController.login);
+
+
+router.route('/register')
+	/* Register a new user. */
+	.post(UsersController.register);
 
 module.exports = router;
 
  
-/* GET one users. 
-router.get('/users/:id', (req, res) => {
-	User.findById(req.params.id, (err, users) => {
-		if (err) res.status(500).send(error)
-
-		res.status(200).json(users);
-	});
-});
-
-/* Create a user. 
-router.post('/users', (req, res) => {
-	let user = new User({
-		name: req.body.name,
-		age: req.body.age
-	});
-
-	user.save(error => {
-		if (error) res.status(500).send(error);
-
-		res.status(201).json({
-			message: 'User created successfully'
-		});
-	});
-});
-*/

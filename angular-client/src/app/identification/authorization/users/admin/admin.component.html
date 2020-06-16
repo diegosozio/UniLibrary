@@ -1,0 +1,51 @@
+<p>Admin componet</p>
+<div class="card mt-4">
+    <h4 class="card-header">Admin</h4>
+    <div class="card-body">
+        <p>This page can be accessed <u>only by administrators</u>.</p>
+        <p class="mb-1">All users from secure (admin only) api end point:</p>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="users">
+            <li *ngFor="let user of users">{{user.name}} {{user.surname}}</li>
+        </ul>
+    </div>
+    <div>
+        <a routerLink="add" class="btn btn-sm btn-success mb-2">Add User</a>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <h4 class="card-header">All users list</h4>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 30%">First Name</th>
+                    <th style="width: 30%">Last Name</th>
+                    <th style="width: 30%">Username</th>
+                    <th style="width: 10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.surname}}</td>
+                    <td>{{user.username}}</td>
+                    <td style="white-space: nowrap">
+                        <a routerLink="edit/{{user.username}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+                        <button (click)="deleteUser(user.username)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="user.isDeleting">
+                            <span *ngIf="user.isDeleting" class="spinner-border spinner-border-sm"></span>
+                            <span *ngIf="!user.isDeleting">Delete</span>
+                        </button>
+                    </td>
+                </tr>
+                <tr *ngIf="!users">
+                    <td colspan="4" class="text-center">
+                        <span class="spinner-border spinner-border-lg align-center"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
