@@ -9,14 +9,16 @@ import { AuthGuard } from '../authentication/utils/auth.guard';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { ArchiveComponent } from '../archive/archive.component';
 import { NotFoundComponent} from '../not-found/not-found.component';
+import { ArchiveModule } from '../archive/archive.module';
 
 const accountModule = () => import('../authentication/account/account.module').then(x => x.AccountModule);
 const usersModule = () => import('../authentication/user/users.module').then(x => x.UsersModule);
- 
+const archiveModule = () => import('../archive/archive.module').then(x => x.ArchiveModule);
+
 const routes: Routes = [  
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent  },
-  { path: 'gallery', component: ArchiveComponent },
+  { path: 'gallery', loadChildren: archiveModule  },
   { path: 'notfound', component: NotFoundComponent  },
 
   /* Afer refactoring */

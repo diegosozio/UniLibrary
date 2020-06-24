@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ArchiveRoutingModule } from './archive-routing.module';
+import { AddBookComponent } from './add-book/add-book.component';
 
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EditBookComponent } from './edit-book/edit-book.component';
 @NgModule({
-  declarations: [],
+  declarations: [AddBookComponent, EditBookComponent],
   imports: [
     CommonModule,
-    AppRoutingModule,
-    FormsModule
+    ArchiveRoutingModule,
+    FormsModule,
+    NgbModule
   ]
 })
 export class ArchiveModule { }

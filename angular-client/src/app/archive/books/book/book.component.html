@@ -31,9 +31,11 @@
   <div class="row  p-3">
     <div class="col-md-7" *ngIf="!user || user.role=='admin'">
 
-      <ui-switch *ngIf="user && user.role=='admin' && book.status" availabe (change)="onChange($event)" checked></ui-switch>
-      <ui-switch *ngIf="user && user.role=='admin' && book.status==false" availabe (change)="onChange($event)"></ui-switch>
-    
+      <ui-switch *ngIf="user && user.role=='admin' && book.status" availabe (change)="onChange($event)" checked>
+      </ui-switch>
+      <ui-switch *ngIf="user && user.role=='admin' && book.status==false" availabe (change)="onChange($event)">
+      </ui-switch>
+
     </div>
     <div class="col-md-8" *ngIf="user && user.role=='reader'">
       <input type="checkbox"> reserve
@@ -42,14 +44,12 @@
       <i *ngIf="book.status==false" class="fa fa-exclamation-triangle text-danger fa-2x" aria-hidden="true"
         title="Not availabe"></i>
       <i *ngIf="book.status" class="fa fa-check-circle text-success fa-2x" aria-hidden="true" title="Availabe"></i>
-      <button>
-        <i *ngIf="user && user.role=='admin'" class="fa fa-pencil pl-2 text-warning fa-2x" aria-hidden="true"
-          title="Edit"></i>
+      <button *ngIf="user && user.role=='admin'" [routerLink]="['/gallery/edit',book._id]">
+        <i class="fa fa-pencil pl-2 text-warning fa-2x" aria-hidden="true" title="Edit"></i>
 
       </button>
-      <button>
-        <i *ngIf="user && user.role=='admin'" class="fa fa-trash pl-2 text-danger fa-2x" aria-hidden="true"
-          title="Delete"></i>
+      <button *ngIf="user && user.role=='admin'" (click)="delete(book._id)">
+        <i class="fa fa-trash pl-2 text-danger fa-2x" aria-hidden="true" title="Delete"></i>
       </button>
 
     </div>

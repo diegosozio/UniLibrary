@@ -124,6 +124,38 @@ class BooksController {
 		});
 	};
 
+	//Delete a book
+	static async deleteBook(req, res) {
+		Book.deleteOne({ _id: req.params.bookId }, function (err) {
+			if (err) return handleError(err);
+			res.status(204).json({
+				message: 'Book deleted successfully'
+			});
+		  })
+	}
+   //getBook a book
+		static async getBook(req, res) {
+			let book = await Book.findById(req.params.bookId)
+				.populate('genre', 'title').populate('author', 'name')
+				.populate('bookType', 'title')
+				;
+				res.json(book);
+		}
+		 //edit a book
+		 static async editBook(req, res) {
+			 
+			let book = await Book.findOneAndUpdate({_id:req.body.book._id}, req.body.book, {
+				new: true,
+				upsert: true 
+			  });
+			  res.status(200).json({
+				message: 'Book updated successfully'
+			});
+		}
+
+
+	
+
 }
 
 

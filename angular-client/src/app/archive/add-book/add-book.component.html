@@ -1,0 +1,89 @@
+<div class="container pt-5">
+
+    
+
+     <h2>Add new book</h2>
+     <form>
+         <div class="row">
+            <div class="form-group col-6">
+                <label for="title">Title :</label>
+                <input type="title"  [(ngModel)]="bookToAdd.title" class="form-control" id="title"  placeholder="Book's title" name="title">
+              </div>
+         </div>      
+      <div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="Genre">Genre :</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                    {{selectedGenre.title}}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
+                    <button *ngFor="let genre of genres" ngbDropdownItem (click)="changeGenre(genre)">
+                      {{genre.title}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="Type">Type :</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                    {{selectedType.title}}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
+                    <button *ngFor="let type of bookTypes" ngbDropdownItem (click)="changeType(type)">
+                      {{type.title}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="Genre">Author :</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                    {{selectedAuthor.name}}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
+                    <button *ngFor="let author of authors" ngbDropdownItem (click)="changeAuthor(author)">
+                      {{author.name}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+        </div>
+      
+        
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="Year">Year :</label>
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
+                    {{selectedYear}}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1 dropdown">
+                    <button *ngFor="let year of years" ngbDropdownItem (click)="changeYear(year)">
+                      {{year}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="titformatle">Format :</label>
+                <input type="text"  [(ngModel)]="bookToAdd.format" class="form-control" id="format"  placeholder="Book's format" name="format">
+              </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-6">
+                <label for="image">Url image :</label>
+                <input type="text" class="form-control" id="image" [(ngModel)]="bookToAdd.image"  placeholder="Book's image eg : https://image/image.png" name="image">
+              </div>
+         </div> 
+      </div>
+   
+      
+        <button type="submit" class="btn btn-primary col-6 mb-5" (click)="submit()">Submit</button>
+      </form>
+</div>

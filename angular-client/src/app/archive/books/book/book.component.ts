@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Book } from 'src/app/Models/book.model';
 import { User } from 'src/app/authentication/user/user';
 import { AccountService } from 'src/app/authentication/account/account.service';
+import { BooksService } from 'src/app/books.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -11,14 +13,24 @@ import { AccountService } from 'src/app/authentication/account/account.service';
 export class BookComponent implements OnInit {
 
   user: User;
-  constructor(private accountService: AccountService) {
-      this.accountService.user.subscribe(x => this.user = x);
+  constructor(private accountService: AccountService, private bookService: BooksService, private router: Router) {
+    this.accountService.user.subscribe(x => this.user = x);
   }
   @Input() book: Book;
   ngOnInit(): void {
   }
-  onChange(event){
+  onChange(event) {
+    this.book.status=event
+    this.bookService.editBook({book:this.book}).subscribe((data: any) => {
+      
+     
+    });
+  }
+  delete(id) {
 
+    this.bookService.deleteBook(id).subscribe((data: any) => {
+      window.location.href='/gallery'
+    });;
   }
 
 }

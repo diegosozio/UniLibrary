@@ -3,11 +3,11 @@
 
   <hr class="mt-2 mb-5">
   <div class="row">
-    <app-book *ngFor="let bk of books" [book]="bk" class="col-md-4"></app-book>
+    <app-book  *ngFor="let bk of books" [book]="bk" class="col-md-4"></app-book>
   </div>
   <div class="row justify-content-end">
     <div class="col-3 mb-5">
-     <button  *ngIf="user && user.role=='admin'" class="btn btn-primary"> < Add new book</button>
+     <button  *ngIf="user && user.role=='admin'" class="btn btn-primary" [routerLink]="['/gallery/add']"> < Add new book</button>
      <button  *ngIf="user && user.role=='reader'" class="btn btn-primary">  Reserve selected books</button>
    
     </div>

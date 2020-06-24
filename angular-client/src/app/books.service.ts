@@ -23,6 +23,20 @@ export class BooksService {
   public getAllAuthors() {
     return this.httpClient.get(`${API_URL}/authors`);
   }
+  public deleteBook(id) {
+    return this.httpClient.post(`${API_URL}/books/${id}`,{});
+  }
+  public addBook(book) {
+    return this.httpClient.post(`${API_URL}/book`,book);
+  }
+  public getBook(id) {
+    return this.httpClient.get(`${API_URL}/books/${id}`,{});
+  }
+  public editBook(book) {
+    let id= book.book._id;
+    console.log(id)
+    return this.httpClient.post(`${API_URL}/books/${id}/edit`,book);
+  }
 
 
 }

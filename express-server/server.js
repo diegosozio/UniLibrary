@@ -8,7 +8,7 @@ const app = express();
 /* MongoDB URL from the docker-compose file.  */
 //const dbHost = 'mongodb://192.168.99.100:27019/unilibrary'; /* Comment this line if it doesn't work for you */
 //const dbHost = 'mongodb://localhost:27019/unilibrary';   /* Decomment this line to connect to database for you */
-const dbHost = 'mongodb://localhost:27019/unilibrary'; 
+const dbHost = 'mongodb://database/unilibrary'; 
 mongoose.connect(dbHost, { useNewUrlParser: true, useFindAndModify: false });
 
 

@@ -30,7 +30,12 @@ module.exports = router;
 
 /* POST add new book. */
 router.post('/book', BooksController.addNewBook);
-
+/* DELETE a book by id. */
+router.post('/books/:bookId', BooksController.deleteBook);
+/* UPDATE a book by id. */
+router.post('/books/:bookId/edit', BooksController.editBook);
+/* GET a book by id. */
+router.get('/books/:bookId', BooksController.getBook);
 /* GET all books. */
 router.get('/books', BooksController.getAllBooks);
 /* GET all genres. */
