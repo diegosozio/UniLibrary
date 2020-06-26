@@ -30,10 +30,16 @@ module.exports = router;
 
 /* POST add new book. */
 router.post('/book', BooksController.addNewBook);
+
+/* Reserve books. */
+router.post('/books/reserve', BooksController.reserve);
+/* get reservations books. */
+router.get('/books/:bookId/reservations', BooksController.reservations);
 /* DELETE a book by id. */
 router.post('/books/:bookId', BooksController.deleteBook);
 /* UPDATE a book by id. */
 router.post('/books/:bookId/edit', BooksController.editBook);
+
 /* GET a book by id. */
 router.get('/books/:bookId', BooksController.getBook);
 /* GET all books. */
@@ -44,9 +50,9 @@ router.get('/genres', BooksController.getAllGenres);
 router.get('/book-types', BooksController.getAllBookTypes);
 /* GET all authors. */
 router.get('/authors', BooksController.getAllAuthors);
-
 /* Register a new user. */
 router.post('/register', UsersController.register);
+
 
 module.exports = router;
 

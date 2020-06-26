@@ -38,7 +38,7 @@
 
     </div>
     <div class="col-md-8" *ngIf="user && user.role=='reader'">
-      <input type="checkbox"> reserve
+      <input type="checkbox" [(ngModel)]="reserve" checked="{{reserve?true:false}}" id="{{book._id}}"  name="book" (change)="onchange($event)"> reserve
     </div>
     <div>
       <i *ngIf="book.status==false" class="fa fa-exclamation-triangle text-danger fa-2x" aria-hidden="true"

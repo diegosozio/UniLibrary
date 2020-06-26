@@ -1,18 +1,15 @@
 <div class="container pt-5">
 
-    
-
-    <h2>Edit a book</h2>
     <form>
         <div class="row">
            <div class="form-group col-6">
+              <h2>Edit a book</h2>
                <label for="title">Title :</label>
                <input type="title"  [(ngModel)]="bookToEdit.title" class="form-control" id="title"  placeholder="Book's title" name="title">
-             </div>
-        </div>      
+                  
      <div>
-       <div class="row">
-           <div class="form-group col-6">
+       
+           <div class="form-group">
                <label for="Genre">Genre :</label>
                <div ngbDropdown class="d-inline-block">
                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
@@ -24,9 +21,7 @@
                  </div>
                </div>
              </div>
-       </div>
-       <div class="row">
-           <div class="form-group col-6">
+           <div class="form-group">
                <label for="Type">Type :</label>
                <div ngbDropdown class="d-inline-block">
                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
@@ -39,8 +34,7 @@
                </div>
              </div>
        </div>
-       <div class="row">
-           <div class="form-group col-6">
+           <div class="form-group">
                <label for="Genre">Author :</label>
                <div ngbDropdown class="d-inline-block">
                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
@@ -51,12 +45,10 @@
                    </button>
                  </div>
                </div>
-             </div>
        </div>
      
        
-       <div class="row">
-           <div class="form-group col-6">
+           <div class="form-group">
                <label for="Year">Year :</label>
                <div ngbDropdown class="d-inline-block">
                  <button class="btn btn-outline-default dropdown" id="dropdownBasic1" ngbDropdownToggle>
@@ -68,21 +60,25 @@
                  </div>
                </div>
              </div>
-       </div>
-       <div class="row">
-           <div class="form-group col-6">
+           <div class="form-group">
                <label for="titformatle">Format :</label>
                <input type="text"  [(ngModel)]="bookToEdit.format" class="form-control" id="format"  placeholder="Book's format" name="format">
              </div>
-       </div>
-       <div class="row">
-           <div class="form-group col-6">
+           <div class="form-group">
                <label for="image">Url image :</label>
                <input type="text" class="form-control" id="image" [(ngModel)]="bookToEdit.image"  placeholder="Book's image eg : https://image/image.png" name="image">
              </div>
-        </div> 
+         
      </div>
-  
+     <div class="col-l">
+       <h2>
+         Reservations:
+       </h2>
+      <ul>
+        <li *ngFor="let reservation of reservations "><b>From :</b> {{reservation.from}} -> <b>To :</b> {{reservation.to}} , <b>Username :</b> {{reservation.user.username}}</li>
+      </ul>
+     </div>
+    </div>
      
        <button type="submit" class="btn btn-primary col-6 mb-5" (click)="submit()">Submit</button>
      </form>

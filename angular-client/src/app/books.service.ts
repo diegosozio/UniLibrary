@@ -37,6 +37,13 @@ export class BooksService {
     console.log(id)
     return this.httpClient.post(`${API_URL}/books/${id}/edit`,book);
   }
+  public reserveBooks(data) {
+    return this.httpClient.post(`${API_URL}/books/reserve`,data);
+  }
+  public getReservations(data) {
+    return this.httpClient.get(`${API_URL}/books/${data}/reservations`);
+  }
+  
 
 
 }

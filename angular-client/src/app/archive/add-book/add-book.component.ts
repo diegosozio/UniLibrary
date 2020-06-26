@@ -31,6 +31,7 @@ export class AddBookComponent implements OnInit {
     author : '',
     bookType: '',
     format: '',
+    status: false,
 };
   constructor(private bookService: BooksService, private router: Router) { }
 

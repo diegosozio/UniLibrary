@@ -20,6 +20,7 @@ export class EditBookComponent implements OnInit {
   selectedType: bookType = { _id: 0, title: 'Type' }
   selectedAuthor: Author = { _id: 0, name: 'Author' }
   selectedYear: any = 'Year';
+  reservations : any =[]
   bookToEdit:any= 
   {
     _id:0,
@@ -45,8 +46,11 @@ export class EditBookComponent implements OnInit {
         this.selectedAuthor=data.author;
         this.selectedType=data.bookType
         this.selectedYear=data.year
-       
+        this.bookService.getReservations(this.bookToEdit._id).subscribe((data: any) => {
+          this.reservations = data.reservations;
+        });
       });
+      
     });
     
     this.bookService.getAllGeneres().subscribe((data: Array<genre>) => {

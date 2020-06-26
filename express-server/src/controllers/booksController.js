@@ -3,6 +3,8 @@ const Book = require("../models/booksModel.js")(mongoose);
 const Genre = require("../models/genreModel.js")(mongoose);
 const BookType = require("../models/bookTypeModel.js")(mongoose);
 const Author = require("../models/authorModel.js")(mongoose);
+const Reservation = require("../models/reservationModel.js")(mongoose);
+const User = require("../models/users.js")(mongoose);
 class BooksController {
 	/* Method to return all the books in the database books collection */
 	static async getAllBooks(req, res) {
@@ -123,6 +125,37 @@ class BooksController {
 			});
 		});
 	};
+		// Reserve a book
+		static async reserve(req, res) {
+
+			const userByUsername = await User.findOne({'username':req.body.username});
+
+			 req.body.books.forEach(async book => { 
+				const bookById = await Book.findById(book);
+				console.log(userByUsername)
+				var reservation = new Reservation({
+					from: req.body.from,
+					to: req.body.to,
+					user: userByUsername._id,
+					book: bookById._id,
+				});
+				reservation.save(error => {
+					console.log(error)
+				});
+			  }); 
+			
+		};
+		static async reservations(req, res) {
+
+			let reservations = await Reservation.find({'book':req.params.bookId})
+			.populate('user', 'username')
+			;
+			res.status(200).json({
+				reservations
+			});
+			
+		};
+		
 
 	//Delete a book
 	static async deleteBook(req, res) {

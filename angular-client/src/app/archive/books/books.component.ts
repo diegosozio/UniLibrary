@@ -3,6 +3,8 @@ import { Book } from '../../Models/book.model';
 import { BooksService } from 'src/app/books.service';
 import { AccountService } from 'src/app/authentication/account/account.service';
 import { User } from 'src/app/authentication/user/user';
+import {NgbModal, ModalDismissReasons, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -10,8 +12,17 @@ import { User } from 'src/app/authentication/user/user';
 })
 export class BooksComponent implements OnInit {
   user: User;
-  constructor(private accountService: AccountService,private bookService: BooksService) {
+  closeResult = '';
+  hoveredDate: NgbDate | null = null;
+
+  fromDate: NgbDate;
+  toDate: NgbDate | null = null;
+  booksToReserve : Array<string>;
+  data : any
+  constructor(private modalService: NgbModal,private accountService: AccountService,private bookService: BooksService,calendar: NgbCalendar) {
       this.accountService.user.subscribe(x => this.user = x);
+      this.fromDate = calendar.getToday();
+      this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
   @Input() books: Array<Book>
 
@@ -19,5 +30,65 @@ export class BooksComponent implements OnInit {
 
 
   }
+  open(content) {
+    this.booksToReserve=[];
+    var checkboxes = document.getElementsByName('book');
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.getAttribute('ng-reflect-model')=='true')
+      this.booksToReserve.push(checkbox.getAttribute('id'))
+    });
+    if(this.booksToReserve.length){
+     
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        console.log( this.booksToReserve);
+        this.data = {
+          'books':this.booksToReserve,
+          'from':this.fromDate.year+' '+this.fromDate.month+'-'+this.fromDate.day,
+          'to':this.toDate.year+' '+this.toDate.month+'-'+this.toDate.day,
+          'username':this.user.username
+
+        }
+        this.bookService.reserveBooks(this.data).subscribe((data: any) => {
+
+        });
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+   
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+     
+    }
+  }
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
+    } else {
+      this.toDate = null;
+      this.fromDate = date;
+    }
+  }
+
+  isHovered(date: NgbDate) {
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+  }
+
+  isInside(date: NgbDate) {
+    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
+  }
+  
 
 }
