@@ -6,9 +6,11 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "body-parser": "^1.15.2",
+    "cors": "^2.8.5",
     "express": "^4.14.0",
-    "mongoose": "^5.9.13",
-    "passport-local-authenticate": "^1.2.0"
+    "mongoose": "^5.9.20",
+    "socket.io": "^2.3.0"
   }
 }

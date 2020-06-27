@@ -2,6 +2,8 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')   
+
+
 const cors = require('cors') // used for blocked by CORS policy: Request header field authorization is not allowed by Access-Control-Allow-Headers in preflight response.
 
 const app = express();
@@ -35,5 +37,19 @@ app.set('port', port);
 /* Create HTTP server. */
 const server = http.createServer(app);
 
+
+const io = require('socket.io').listen(server, {origins: '*:*'});
+
 /* Listen on provided port, on all network interfaces. */
 server.listen(port, () => console.log(`API running on localhost:${port}`));
+
+io.on("connect", (socket) => {
+  console.log("Connected client on port %s.", port);
+  socket.on("message", (m) => {
+      console.log("[server](message): %s", JSON.stringify(m));
+      io.emit("message", m);
+  });
+  socket.on("disconnect", () => {
+      console.log("Client disconnected");
+  });
+});

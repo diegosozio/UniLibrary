@@ -41,7 +41,7 @@ class UsersController {
 	/* Method to handle authentication */
 	static async login(req, res) {
 		var info = req.body;
-		var query = {username: info.username};
+		var query = {username: info.username};		
 
 		User.find(query, (err, users)=> {
 			/* An error during the request */
