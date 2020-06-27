@@ -11,6 +11,11 @@ import { AlertComponent } from './identification/authentication/alerts/alert.com
 import { HomeComponent } from './identification/authorization/home/home.component';
 import { AuthenticationService } from './identification/authentication/authentication.service';
 import { AdminComponent } from './identification/authorization/users/admin/admin.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChatComponent } from './chat/chat.component';
+import { ChatModule } from './chat/chat.module';
+import { SharedModule } from './shared/shared.module';
+import { MatMenu, MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
 
@@ -18,13 +23,18 @@ import { AdminComponent } from './identification/authorization/users/admin/admin
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+
+    ChatModule,
+    SharedModule,
+    MatMenuModule
   ],
 
   declarations: [
     AppComponent, 
     AlertComponent, 
-    HomeComponent,
+    HomeComponent
     //AdminComponent
   /*ArchiveComponent,
     FilterComponent,

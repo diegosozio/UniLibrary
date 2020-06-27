@@ -5,6 +5,9 @@
       <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <!--<a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a> -->
       <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a>
+      <a class="nav-item nav-link" routerLink="/chat" *ngIf="isLibrarian">Chat</a>
+      <a class="nav-item nav-link" routerLink="/chat" *ngIf="isReader">Chat</a>
+
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav>

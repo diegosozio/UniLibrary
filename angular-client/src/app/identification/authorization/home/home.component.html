@@ -1,13 +1,13 @@
 <div class="card mt-4">
-    <h4 class="card-header">Home</h4>
+    <h4 class="card-header">Admin</h4>
     <div class="card-body">
-        <p>You're logged in with Angular 8 & JWT!!</p>
-        <p>Your role is: <strong>{{currentUser.role}}</strong>.</p>
-        <p>This page can be accessed by <u>all authenticated users</u>.</p>
-        <p class="mb-1">Current user from secure api end point:</p>
-        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-        <ul *ngIf="userFromApi">
-            <li>{{userFromApi.name}} {{userFromApi.surname}}</li>
+        <p>This page can be accessed <u> <strong> by administrators</strong></u> only. From this interface you can: You can add a new user from this interface. </p>
+        <ul>
+            <li> add a new user</li>
+            <li> edit an already registered user</li>
+            <li> delete an already registered user</li>
         </ul>
+        <p>Keep in mind that if you delete yourself from the list, you will be auto-loggout automatically.</p>
     </div>
 </div>
+

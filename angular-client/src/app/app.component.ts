@@ -20,7 +20,15 @@ export class AppComponent {
 
     get isAdmin() {
       return this.user && this.user.role === Role.Admin; // I added
-  }
+    }
+
+    get isLibrarian() {
+      return this.user && this.user.role === Role.Librarian; // I added
+    }
+
+    get isReader() {
+      return this.user && this.user.role === Role.Reader; // I added
+    }
 
 
     logout() {

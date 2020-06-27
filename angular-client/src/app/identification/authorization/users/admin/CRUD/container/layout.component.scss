@@ -1,0 +1,12 @@
+.pretty-bg {    
+   // background-color: #fc7279;
+   // background-image: -webkit-linear-gradient(bottom left, #747674 10%, hsl(120, 5%, 78%) 65%, #ffdf00 125%);
+   // background-image: linear-gradient(to top right,#747674 10%, #747674 65%, #ffdf00 125%);
+
+    background: -webkit-linear-gradient(-150deg, #272200, #898776);
+    background: -o-linear-gradient(-150deg, #272200, #898776);
+    background: -moz-linear-gradient(-150deg, #272200, #898776);
+    background: linear-gradient(-150deg, #272200, #898776);
+    
+    min-height: 100vh;
+  }

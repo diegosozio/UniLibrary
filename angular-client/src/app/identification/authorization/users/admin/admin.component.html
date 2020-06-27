@@ -1,18 +1,18 @@
-<p>Admin componet</p>
 <div class="card mt-4">
     <h4 class="card-header">Admin</h4>
     <div class="card-body">
-        <p>This page can be accessed <u>only by administrators</u>.</p>
-        <p class="mb-1">All users from secure (admin only) api end point:</p>
-        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-        <ul *ngIf="users">
-            <li *ngFor="let user of users">{{user.name}} {{user.surname}}</li>
+        <p>This page can be accessed <u> <strong> by administrators</strong></u> only. From this interface you can: You can add a new user from this interface. </p>
+        <ul>
+            <li> add a new user</li>
+            <li> edit an already registered user</li>
+            <li> delete an already registered user</li>
         </ul>
-    </div>
-    <div>
-        <a routerLink="add" class="btn btn-sm btn-success mb-2">Add User</a>
+        <p>Keep in mind that if you delete yourself from the list, you will be auto-loggout automatically.</p>
     </div>
 </div>
+
+
+
 
 <div class="card mt-4">
     <h4 class="card-header">All users list</h4>
@@ -23,7 +23,10 @@
                     <th style="width: 30%">First Name</th>
                     <th style="width: 30%">Last Name</th>
                     <th style="width: 30%">Username</th>
-                    <th style="width: 10%"></th>
+                    <th>
+                        <a routerLink="add" class="btn btn-sm btn-secondary mb-2">Add User</a>
+                    </th>
+                    <!-- <th style="width: 10%"></th> -->
                 </tr>
             </thead>
             <tbody>

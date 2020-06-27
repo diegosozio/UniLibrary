@@ -7,6 +7,7 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 import { ArchiveComponent } from '../archive/archive.component';
 import { NotFoundComponent} from '../not-found/not-found.component';
 import { Role } from '../identification/model/role';
+import { ChatComponent } from '../chat/chat.component';
 
 
 const authenticationModule = () => import('../identification/authentication/authentication.module').then(x => x.AuthenticaionModule);
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [RoleGuard] },
   { path: 'account', loadChildren: authenticationModule },
   { path: 'admin',   loadChildren: adminModule, canActivate: [RoleGuard], data: { roles: [Role.Admin] }, },
+
+   {path: 'chat', component: ChatComponent},
 
   { path: '**', redirectTo: '' }
 

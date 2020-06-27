@@ -38,8 +38,13 @@ export class AuthenticationService {
                 /* store user details and jwt token in local storage to keep user logged in between page refreshes */                 
                 localStorage.setItem('user', JSON.stringify(user));
                 this.userSubject.next(user);
+
+                console.log("Logged users: "+ localStorage.getItem('user'))
+
                 return user;
-             }));             
+             })); 
+             
+             
     }
 
     /** Method to be use outside this class */
