@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 
 import { AddEditComponent } from './CRUD/add-edit/add-edit.component';
-import { ListComponent } from './CRUD/user-list/list.component';
 import { LayoutComponent } from './CRUD/container/layout.component';
 import { AdminComponent } from './admin.component';
 
@@ -18,7 +17,6 @@ import { AdminComponent } from './admin.component';
         LayoutComponent,
         AdminComponent,
         AddEditComponent,
-        ListComponent
     ]
 }) 
 export class AdminModule { }
