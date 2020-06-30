@@ -11,3 +11,110 @@
      min-height: 100vh;
    }
 
+/* || General Styling */
+body, header {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: whitesmoke;
+}
+ 
+header {
+  min-heigh: 550px;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+  padding: .5%;
+}
+
+footer {  
+  color: gray;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 5px;
+}
+
+.creds {
+  font-size: 0.65rem;
+  font-family: Courier, monospace;
+  text-align: center;
+  padding: 1%;
+}
+
+.hero-text {
+  position: absolute;
+  top: 60%;
+  left: 1rem;
+  font-size: 1rem;
+  transform: translate(0, -50%);
+  text-align: left;
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 5px;
+  width: 50%;
+}
+
+nav {
+  width: 100%;
+  position: absolute;
+  font-size: 2rem;
+}
+
+nav ul {
+  display: inline-block;
+  list-style-type: none;
+  font-size: 1.25rem;
+}
+
+/* || Gradient Stuff */
+
+.hero::before {
+    content: ""; 
+    /* Control the gradient stops with percentages here. */
+    background: linear-gradient(to bottom,rgba(0,0,0,0.65) ,rgba(0,0,0,0) 100%); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* I don't want this too high because I only want to darken the top. */
+    height: 300px; 
+}
+
+.hero {
+    color: whitesmoke;
+    text-align: center;
+    height: 100vh;
+    min-height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("./images/books.jpg");
+}
+
+/* || Media Queries */
+
+@media screen and (min-width: 1024px) {
+  .hero-text, .hero nav ul li {
+    font-size: 1.75rem; 
+  }
+}
+
+@media screen and (min-width: 800px) {
+  footer {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 500px) {
+  nav ul {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .hero-text {
+    width: 30%;
+    left: 2rem;
+  }
+}

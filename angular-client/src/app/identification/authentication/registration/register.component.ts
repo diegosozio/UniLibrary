@@ -52,9 +52,7 @@ export class RegisterComponent implements OnInit {
         this.authService.register(this.form.value)
             .pipe(first())
             .subscribe(
-                data => {
-                    console.log("data: " + data);
-                    
+                data => {                   
                     this.alertService.success('Registration successful', { keepAfterRouteChange: true });
                     this.router.navigate(['../login'], { relativeTo: this.route });
                 },

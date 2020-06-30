@@ -35,16 +35,12 @@ import { MatMenu, MatMenuModule } from '@angular/material/menu';
     AppComponent, 
     AlertComponent, 
     HomeComponent
-    //AdminComponent
-  /*ArchiveComponent,
-    FilterComponent,
-    BookComponent*/
   ],
   bootstrap: [AppComponent],  
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor,  multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor,multi: true }, 
-    AuthenticationService // To dbe deleted ?!
+    AuthenticationService
   ],
 })
 export class AppModule { };

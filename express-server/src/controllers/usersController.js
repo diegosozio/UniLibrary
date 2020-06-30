@@ -108,7 +108,7 @@ class UsersController {
 	static async updateUserByUsername(req, res){
 		var user = new User(req.body);
 		var oldName = req.params.username;
-
+		
 		bcrypt.hash(user.password, saltRounds, function (error,   hash) {		
 			User.findOneAndUpdate({'username': oldName}, 
 				{$set: {

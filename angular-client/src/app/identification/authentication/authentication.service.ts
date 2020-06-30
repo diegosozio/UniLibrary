@@ -7,11 +7,6 @@ import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { User } from '../model/user';
 
-
-/**
- * TODO:
- * - refactor id to _id and make the necessary controlls
- */
  
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -38,8 +33,6 @@ export class AuthenticationService {
                 /* store user details and jwt token in local storage to keep user logged in between page refreshes */                 
                 localStorage.setItem('user', JSON.stringify(user));
                 this.userSubject.next(user);
-
-                console.log("Logged users: "+ localStorage.getItem('user'))
 
                 return user;
              })); 

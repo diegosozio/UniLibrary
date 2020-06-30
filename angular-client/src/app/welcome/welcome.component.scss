@@ -193,12 +193,14 @@ html, body
 
 	.title
 	{
+		font-weight: 800;
 		margin-bottom: 3em;
 	}
 	
 	.title h2
 	{
 		font-size: 1.5em;
+		font-weight: 0;
 	}
 	
 	.title .byline
@@ -215,10 +217,10 @@ html, body
 	{
 		position: relative;
 		padding: 5em 0em 7em 0em;
-		background: -webkit-linear-gradient(-150deg, #000000, #ffdf00);
-    background: -o-linear-gradient(-150deg, #000000, #ffdf00);
-    background: -moz-linear-gradient(-150deg, #000000, #ffdf00);
-    background: linear-gradient(-150deg, #000000, #ffdf00);
+		background: -webkit-linear-gradient(-150deg, #000000, #DCD8A1);
+    background: -o-linear-gradient(-150deg, #000000, #DCD8A1);
+    background: -moz-linear-gradient(-150deg, #000000, #DCD8A1);
+    background: linear-gradient(-150deg, #000000, #DCD8A1);
 	}
 
 /*********************************************************************************/
@@ -229,7 +231,7 @@ html, body
 	{
 		position: relative;
 		padding: 5em 0em 40em 0em;
-		background: #FFF url(images/forestbridge.jpg) no-repeat center;
+		background: #FFF url("./images/black-lib.jpg") no-repeat center;
     background-size: cover;
     min-height: 100%;
 	}
@@ -340,7 +342,7 @@ html, body
 	#banner .button
 	{
 		margin-top: 2em;
-		padding: 1.40em 3em;
+		padding: 1.60em 3em;
 		border: 2px solid rgba(255,255,255,1);
 		border-radius: 6px;
 		font-weight: 700;
@@ -436,4 +438,24 @@ footer .fa{
 	{
 		text-align: left;
 		color: #FFF;
+	}
+
+
+	.nice-button {
+		transition: all .5s ease;
+		color: rgb(102, 97, 97);
+		border: 3px solid white;
+		font-family:'Montserrat', sans-serif;
+		text-transform: uppercase;
+		text-align: center;
+		line-height: 1;
+		font-size: 17px;
+		background-color : transparent;
+		padding: 10px;
+		outline: none;
+		border-radius: 4px;
+	}
+	#menu .nice-button:hover {
+		color: black;
+		background-color: #DCD8A1;
 	}

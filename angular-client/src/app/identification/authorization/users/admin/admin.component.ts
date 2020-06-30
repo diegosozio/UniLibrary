@@ -9,9 +9,7 @@ export class AdminComponent implements OnInit {
     isDeleting = false;
     users:  User[] = [];
 
-    constructor(
-        private adminService: AdminService,
-        ) { }
+    constructor(private adminService: AdminService) { }
 
     ngOnInit() {
         this.loading = true;

@@ -53,7 +53,6 @@ export class AddEditComponent implements OnInit {
                     this.f.role.setValue((x.role));
                 }); 
         } 
-        
 
     }
 
@@ -71,8 +70,6 @@ export class AddEditComponent implements OnInit {
 
         this.loading = true;
         
-        console.log("Edit button was pressed");
-
 
         if (this.isAddMode) {
             this.createUser();

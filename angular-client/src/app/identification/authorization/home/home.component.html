@@ -1,13 +1,7 @@
-<div class="card mt-4">
-    <h4 class="card-header">Admin</h4>
-    <div class="card-body">
-        <p>This page can be accessed <u> <strong> by administrators</strong></u> only. From this interface you can: You can add a new user from this interface. </p>
-        <ul>
-            <li> add a new user</li>
-            <li> edit an already registered user</li>
-            <li> delete an already registered user</li>
-        </ul>
-        <p>Keep in mind that if you delete yourself from the list, you will be auto-loggout automatically.</p>
-    </div>
+<div class="card mt-4 hero">
+    <div class="hero-text">
+        <h1>Welcome to our page {{currentUser.role}}</h1>
+        <h2>{{currentUser.name}} you can discover the best books around</h2>
+        <h3>You can invite your friends too</h3> 
+    </div> 
 </div>
-

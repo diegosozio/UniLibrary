@@ -18,8 +18,7 @@ export class RoleGuard implements CanActivate {
                 /* role not authorised so redirect to home page */
                 this.router.navigate(['/']);
                 return false;
-            }
-                        
+            }         
 
             /* authorised so return true */
             return true;
