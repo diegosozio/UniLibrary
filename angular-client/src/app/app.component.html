@@ -7,6 +7,8 @@
           <ul>
               <li><a class="nav-item nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
               <li><a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a></li>
+              <li><a class="nav-item nav-link" routerLink="/gallery" *ngIf="isLibrarian">Gallery</a></li>
+              <li><a class="nav-item nav-link" routerLink="/gallery" *ngIf="isReader">Gallery</a></li>
               <li><a class="nav-item nav-link" routerLink="/chat" *ngIf="isLibrarian">Chat</a></li>
               <li><a class="nav-item nav-link" routerLink="/chat" *ngIf="isReader">Chat</a></li>
               <li><a class="nav-item nav-link" (click)="logout()">Logout</a></li>
