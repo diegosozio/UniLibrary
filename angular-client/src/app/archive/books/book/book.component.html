@@ -1,1 +1,42 @@
-<p>book works!</p>
+<!-- Page Content -->
+<div class="col-md-4 card">
+  <div class="row">
+    <div class="col-md-6 card p-2">
+      <p>
+        Author: {{book.author.name}}
+      </p>
+      <p>
+        Genre: {{book.genre.title}}
+      </p>
+      <p>
+        Year: {{book.year}}
+      </p>
+      <p>
+        Format: {{book.format}}
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <b>
+          {{book.title}}
+        </b>
+      </div>
+      <div>
+
+        <img class="img-fluid img-thumbnail" [src]="book.image" alt="">
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <input type="checkbox"> reserve
+    </div>
+    <div>
+
+      <i *ngIf="book.status==false" class="fa fa-exclamation-triangle text-danger fa-2x" aria-hidden="true" title="Not availabe"></i>
+      <i *ngIf="book.status"class="fa fa-check-circle text-success fa-2x" aria-hidden="true" title="Availabe"></i>
+    </div>
+  </div>
+
+</div>
