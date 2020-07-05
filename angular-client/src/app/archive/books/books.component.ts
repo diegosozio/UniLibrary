@@ -87,7 +87,9 @@ export class BooksComponent implements OnInit {
           let jsDateTo= new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day);
           let jsDateReservationTo = new Date(reservation.to);
           let jsDateReservationFrom = new Date(reservation.from);
-          if(jsDateFrom <= jsDateReservationFrom && jsDateReservationFrom<=jsDateTo || jsDateFrom <= jsDateReservationTo && jsDateReservationTo <= jsDateTo){
+          if((jsDateFrom <= jsDateReservationFrom && jsDateReservationFrom<=jsDateTo || jsDateFrom <= jsDateReservationTo && jsDateReservationTo <= jsDateTo) ||
+          (jsDateFrom >= jsDateReservationFrom && jsDateReservationTo>=jsDateTo)
+            ){
           
            console.log(selectedBook)
            alert(selectedBook['title'] + ' is reserved from '+reservation.from+ ' to '+reservation.to)
