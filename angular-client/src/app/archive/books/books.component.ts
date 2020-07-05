@@ -3,7 +3,7 @@ import { Book } from '../../Models/book.model';
 import { BooksService } from 'src/app/books.service';
 import { AccountService } from 'src/app/authentication/account/account.service';
 import { User } from 'src/app/authentication/user/user';
-import {NgbModal, ModalDismissReasons, NgbCalendar, NgbDate} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-books',
@@ -21,8 +21,8 @@ export class BooksComponent implements OnInit {
   data : any
   constructor(private modalService: NgbModal,private accountService: AccountService,private bookService: BooksService,calendar: NgbCalendar) {
       this.accountService.user.subscribe(x => this.user = x);
-      this.fromDate = calendar.getToday();
-      this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+      //this.fromDate = calendar.getToday();
+     // this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
   @Input() books: Array<Book>
 
@@ -70,12 +70,40 @@ export class BooksComponent implements OnInit {
   onDateSelection(date: NgbDate) {
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+    } else if (this.fromDate && date.after(this.fromDate)) {
       this.toDate = date;
     } else {
       this.toDate = null;
       this.fromDate = date;
     }
+    let error_message = "";
+    this.booksToReserve.forEach((bookId) => {
+      this.bookService.getReservations(bookId).subscribe((data: any) => {
+        data.reservations.forEach((reservation) => {
+          let  selectedBook = this.books.find(book => book._id==bookId);
+
+         if(this.fromDate && this.toDate && selectedBook.format.toLowerCase()!='electronic'){
+          let jsDateFrom = new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day);
+          let jsDateTo= new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day);
+          let jsDateReservationTo = new Date(reservation.to);
+          let jsDateReservationFrom = new Date(reservation.from);
+          if(jsDateFrom <= jsDateReservationFrom && jsDateReservationFrom<=jsDateTo || jsDateFrom <= jsDateReservationTo && jsDateReservationTo <= jsDateTo){
+          
+           console.log(selectedBook)
+           alert(selectedBook['title'] + ' is reserved from '+reservation.from+ ' to '+reservation.to)
+           this.fromDate = null;
+           this.toDate=null;
+
+          }
+     
+            
+        
+         }
+        });
+      });
+    });
+  
+    console.log(this.toDate)
   }
 
   isHovered(date: NgbDate) {
@@ -89,6 +117,7 @@ export class BooksComponent implements OnInit {
   isRange(date: NgbDate) {
     return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
   }
+
   
 
 }
