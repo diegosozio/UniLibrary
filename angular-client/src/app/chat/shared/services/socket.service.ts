@@ -6,7 +6,8 @@ import { Event } from '../model/event';
 
 import * as socketIo from 'socket.io-client';
 
-const SERVER_URL = 'http://192.168.99.100:3000';
+//const SERVER_URL = 'http://192.168.99.100:3000';
+const SERVER_URL = 'localhost:3000';
 
 @Injectable()
 export class SocketService {
