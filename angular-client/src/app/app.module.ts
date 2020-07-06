@@ -15,6 +15,15 @@ import { SharedModule } from './shared/shared.module';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { ArchiveModule } from './archive/archive.module';
 
+import { ArchiveComponent } from './archive/archive.component';
+import { BooksComponent } from './archive/books/books.component';
+import { BookComponent } from './archive/books/book/book.component';
+import { FilterComponent } from './archive/filter/filter.component';
+import {FormsModule} from '@angular/forms'
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UiSwitchModule } from 'ngx-ui-switch';
+
+
 @NgModule({
 
   imports: [
@@ -26,13 +35,25 @@ import { ArchiveModule } from './archive/archive.module';
 
     ChatModule,
     SharedModule,
-    MatMenuModule
+    MatMenuModule,
+    ArchiveModule,
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule,
+    UiSwitchModule
   ],
 
   declarations: [
     AppComponent, 
     AlertComponent, 
-    HomeComponent
+    HomeComponent,
+    ArchiveComponent,
+    FilterComponent,
+    BookComponent,
+    BooksComponent
   ],
   bootstrap: [AppComponent],  
   providers: [

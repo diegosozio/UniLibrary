@@ -1,18 +1,18 @@
 <!-- Page Content -->
-<div class="col-md-4 card">
-  <div class="row">
-    <div class="col-md-6 card p-2">
+<div class="card">
+  <div class="row  p-3">
+    <div class="col-md-6">
       <p>
-        Author: {{book.author.name}}
+        <b>Author:</b> {{book.author.name}}
       </p>
       <p>
-        Genre: {{book.genre.title}}
+        <b>Genre:</b> {{book.genre.title}}
       </p>
       <p>
-        Year: {{book.year}}
+        <b>Year:</b> {{book.year}}
       </p>
       <p>
-        Format: {{book.format}}
+        <b>Format:</b> {{book.format}}
       </p>
     </div>
     <div class="col-md-6">
@@ -28,14 +28,30 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8">
-      <input type="checkbox"> reserve
+  <div class="row  p-3">
+    <div class="col-md-7" *ngIf="!user || user.role=='admin'">
+
+      <ui-switch *ngIf="user && user.role=='admin' && book.status" availabe (change)="onChange($event)" checked>
+      </ui-switch>
+      <ui-switch *ngIf="user && user.role=='admin' && book.status==false" availabe (change)="onChange($event)">
+      </ui-switch>
+
+    </div>
+    <div class="col-md-8" *ngIf="user && user.role=='reader'">
+      <input type="checkbox" [(ngModel)]="reserve" checked="{{reserve?true:false}}" id="{{book._id}}"  name="book" (change)="onchange($event)"> reserve
     </div>
     <div>
+      <i *ngIf="book.status==false" class="fa fa-exclamation-triangle text-danger fa-2x" aria-hidden="true"
+        title="Not availabe"></i>
+      <i *ngIf="book.status" class="fa fa-check-circle text-success fa-2x" aria-hidden="true" title="Availabe"></i>
+      <button *ngIf="user && user.role=='admin'" [routerLink]="['/gallery/edit',book._id]">
+        <i class="fa fa-pencil pl-2 text-warning fa-2x" aria-hidden="true" title="Edit"></i>
 
-      <i *ngIf="book.status==false" class="fa fa-exclamation-triangle text-danger fa-2x" aria-hidden="true" title="Not availabe"></i>
-      <i *ngIf="book.status"class="fa fa-check-circle text-success fa-2x" aria-hidden="true" title="Availabe"></i>
+      </button>
+      <button *ngIf="user && user.role=='admin'" (click)="delete(book._id)">
+        <i class="fa fa-trash pl-2 text-danger fa-2x" aria-hidden="true" title="Delete"></i>
+      </button>
+
     </div>
   </div>
 

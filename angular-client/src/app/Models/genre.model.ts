@@ -1,4 +1,4 @@
 export class genre {
-    id:number;
+    _id:number;
     title: string;
 }

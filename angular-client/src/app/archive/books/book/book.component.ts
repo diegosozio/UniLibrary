@@ -1,5 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Book } from 'src/app/Models/book.model';
+import { User } from 'src/app/identification/model/user';
+import { AuthenticationService } from 'src/app/identification/authentication/authentication.service';
+import { BooksService } from 'src/app/books.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -8,9 +12,29 @@ import { Book } from 'src/app/Models/book.model';
 })
 export class BookComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+  reserve=false
+  constructor(private accountService: AuthenticationService, private bookService: BooksService, private router: Router) {
+    this.accountService.user.subscribe(x => this.user = x);
+  }
   @Input() book: Book;
   ngOnInit(): void {
+  }
+  onChange(event) {
+    this.book.status=event
+    this.bookService.editBook({book:this.book}).subscribe((data: any) => {
+      
+     
+    });
+  }
+  onchange(event){
+    console.log(event)
+  }
+  delete(id) {
+
+    this.bookService.deleteBook(id).subscribe((data: any) => {
+      window.location.href='/gallery'
+    });;
   }
 
 }

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = require("../models/users.js")(mongoose);
+const User = mongoose.model('usermodel')
 
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -108,7 +108,7 @@ class UsersController {
 	static async updateUserByUsername(req, res){
 		var user = new User(req.body);
 		var oldName = req.params.username;
-		
+
 		bcrypt.hash(user.password, saltRounds, function (error,   hash) {		
 			User.findOneAndUpdate({'username': oldName}, 
 				{$set: {
@@ -139,7 +139,6 @@ class UsersController {
 	}; 
 	
 }
-
 
 /** Exporting user routes */
 module.exports = UsersController;
