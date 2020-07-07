@@ -22,6 +22,6 @@ $ git clone https://github.com/gangachris/mean-docker
  username: user   password: user123
  username: librarian   password: librarian123
  username: admin   password: admin123
-
+```
 
  App should be running in `localhost:4200`
