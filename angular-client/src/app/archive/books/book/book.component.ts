@@ -14,9 +14,14 @@ export class BookComponent implements OnInit {
 
   user: User;
   reserve=false
-  constructor(private accountService: AuthenticationService, private bookService: BooksService, private router: Router) {
+  constructor(
+    private accountService: AuthenticationService, 
+    private bookService: BooksService, 
+    private router: Router) 
+    {
     this.accountService.user.subscribe(x => this.user = x);
   }
+  
   @Input() book: Book;
   ngOnInit(): void {
   }

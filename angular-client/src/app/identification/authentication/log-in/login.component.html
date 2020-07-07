@@ -1,5 +1,4 @@
-﻿
-<div class="form validate-form">
+﻿<div class="form validate-form">
     <span class="form-title">Member Login</span>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -7,9 +6,7 @@
                <!-- <label for="username">Username</label> -->
                 <input type="text" placeholder="Username" formControlName="username" class="form-control input" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                 <span class="focus-input"></span>
-                <span class="symbol-input">
-                    <i class="fa fa-id-card" aria-hidden="true"></i>
-                </span>
+               
                 <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                     <div *ngIf="f.username.errors.required">Username is required</div>
                 </div>
@@ -18,9 +15,7 @@
                 <!-- <label for="password">Password</label> -->
                 <input type="password"  placeholder="Password" id="password" formControlName="password" class="form-control input"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                 <span class="focus-input"></span>
-                <span class="symbol-input">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </span>
+            
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
@@ -39,4 +34,3 @@
         </form>
     </div>
 </div>
-

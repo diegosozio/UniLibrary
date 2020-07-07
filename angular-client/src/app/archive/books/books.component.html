@@ -1,3 +1,6 @@
+<div class="card mt-2 hadow-lg">
+
+
 <div class="container">
   <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Gallery</h1>
 
@@ -7,8 +10,8 @@
   </div>
   <div class="row justify-content-end">
     <div class="col-3 mb-5">
-      <button *ngIf="user && user.role=='admin'" class="btn btn-primary" [routerLink]="['/gallery/add']">
-        < Add new book</button> <button *ngIf="user && user.role=='reader'" class="btn btn-primary"
+      <button *ngIf="user && user.role=='librarian'" class="btn btn-outline-dark" [routerLink]="['/gallery/add']">
+        Add new book</button> <button *ngIf="user && user.role=='reader'" class="btn btn-light"
           (click)="open(content)"> Reserve selected books
       </button>
 
@@ -53,3 +56,4 @@
 <hr>
 
 <pre>{{ closeResult }}</pre>
+</div>

@@ -9,6 +9,7 @@ class BooksController {
 	/* Method to return all the books in the database books collection */
 	static async getAllBooks(req, res) {
 
+		console.log("get all books was called")
 
 		const query = req.query.query == "" ? null : req.query.query
 

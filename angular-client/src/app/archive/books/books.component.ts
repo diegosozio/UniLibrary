@@ -4,7 +4,6 @@ import { BooksService } from 'src/app/books.service';
 import { AuthenticationService } from 'src/app/identification/authentication/authentication.service';
 import { User } from 'src/app/identification/model/user';
 import {NgbModal, ModalDismissReasons, NgbCalendar, NgbDate, NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
-
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -19,7 +18,11 @@ export class BooksComponent implements OnInit {
   toDate: NgbDate | null = null;
   booksToReserve : Array<string>;
   data : any
-  constructor(private modalService: NgbModal,private accountService: AuthenticationService,private bookService: BooksService,calendar: NgbCalendar) {
+  constructor(
+    private modalService: NgbModal,
+    private accountService: AuthenticationService,
+    private bookService: BooksService,
+    calendar: NgbCalendar) {
       this.accountService.user.subscribe(x => this.user = x);
       //this.fromDate = calendar.getToday();
      // this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
@@ -123,3 +126,4 @@ export class BooksComponent implements OnInit {
   
 
 }
+
