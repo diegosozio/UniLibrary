@@ -1,20 +1,34 @@
-## MEAN Docker
-App to show a Docker Compose set up for a mean application running Angular 2.
+## UniLibrary
+UniLibrary is a project done for the course of Web Application and Services. To implmement this project has been used the MEAN stack.
 
-**NOTE** For angular 7 try [ng-7 branch](https://github.com/gangachris/mean-docker/tree/ng-7)
 
-## Set up
-Make sure you have docker and docker-compose installed.
-
+## Requirments
+Make sure you have npm, docker and docker-compose installed.
 Docker-compose should be version 1.6 or higher.
 
-### Clone the repo
+### Clone repository
 ```bash
-$ git clone https://github.com/gangachris/mean-docker
+$ git clone https://github.com/nour1988/UniLibrary.git
 ```
- ### Run docker
+ ### Client side
  ```bash
- $ docker-compose up
+ cd UniLibrary
+ cd angular-client
+ npm install
+ ```
+ ### Server side
+ ```bash
+ cd ..\
+ cd express-server
+ npm install
+ ```
+ 
+ ### Docker compose 
+ ```bash
+ cd ..\
+ docker-compose up --build
  ```
 
  App should be running in `localhost:4200`
+ Server should be running in `localhost:3000`
+
