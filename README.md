@@ -28,7 +28,14 @@ $ git clone https://github.com/nour1988/UniLibrary.git
  cd ..\
  docker-compose up --build
  ```
-
+ 
+### Log in credentials
+ ```bash
+ username: user   password: user123
+ username: librarian   password: librarian123
+ username: admin   password: admin123
+ ```
+ 
  App should be running in `localhost:4200`
  Server should be running in `localhost:3000`
 
