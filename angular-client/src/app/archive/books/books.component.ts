@@ -80,7 +80,7 @@ export class BooksComponent implements OnInit {
     this.booksToReserve.forEach((bookId) => {
       this.bookService.getReservations(bookId).subscribe((data: any) => {
         data.reservations.forEach((reservation) => {
-          let  selectedBook = this.books.find(book => book._id+""==bookId);
+          let  selectedBook = this.books.find(book => book._id==bookId);
 
          if(this.fromDate && this.toDate && selectedBook.format.toLowerCase()!='electronic'){
           let jsDateFrom = new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day);

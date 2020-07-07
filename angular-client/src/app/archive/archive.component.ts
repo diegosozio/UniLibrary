@@ -24,6 +24,7 @@ export class ArchiveComponent implements OnInit {
     }
     this.bookService.getAllBooks(data).subscribe((data: Array<Book>) => {
 
+      console.log ("data "+ data );
       this.books = data;
     });
   }

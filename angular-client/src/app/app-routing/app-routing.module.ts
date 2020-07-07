@@ -12,13 +12,14 @@ import { ChatComponent } from '../chat/chat.component';
 
 const authenticationModule = () => import('../identification/authentication/authentication.module').then(x => x.AuthenticaionModule);
 const adminModule = () => import('../identification/authorization/users/admin/admin.module').then(x => x.AdminModule);
+const archiveModule = () => import('../archive/archive.module').then(x => x.ArchiveModule);
 
 
 const routes: Routes = [  
 
   { path: '', redirectTo: '/welcome', pathMatch: 'full' }, 
   { path: 'welcome', component: WelcomeComponent  },
-  { path: 'gallery', component: ArchiveComponent },
+  { path: 'gallery', loadChildren: archiveModule  },
   { path: 'notfound', component: NotFoundComponent  },
 
   { path: 'home', component: HomeComponent, canActivate: [RoleGuard] },

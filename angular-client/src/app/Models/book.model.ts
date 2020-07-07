@@ -3,7 +3,7 @@ import { Author } from './author.model';
 import { bookType } from './bookType.model';
 
 export class Book {
-    _id:number;
+    _id:string;
     title: string;
     year: number;
     image: string;

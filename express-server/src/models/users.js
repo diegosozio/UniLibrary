@@ -1,4 +1,4 @@
-/* Creating and exporting a mongo schema of User 
+ //Creating and exporting a mongo schema of User 
 module.exports = function(mongoose) {
     var Schema = mongoose.Schema;
     var UserSchema = new Schema({
@@ -12,9 +12,9 @@ module.exports = function(mongoose) {
     });    
     return mongoose.model('usermodel', UserSchema, 'users');
 };
-*/
 
 
+/*
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -25,4 +25,4 @@ var UserSchema = new Schema({
     password: String,
     role: String,
 });
-module.exports = mongoose.model('usermodel', UserSchema, 'users');
+module.exports = mongoose.model('usermodel', UserSchema, 'users');*/
