@@ -1,11 +1,12 @@
  //Creating and exporting a mongo schema of User 
 module.exports = function(mongoose) {
+    delete mongoose.connection.models['usermodel'];
     var Schema = mongoose.Schema;
     var UserSchema = new Schema({
         username:  String, 
         name: String,
         surname: String,
-        password: String,
+        password: Object,
         role: String,
     },{
         versionKey: false
